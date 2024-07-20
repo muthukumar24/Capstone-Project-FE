@@ -106,9 +106,9 @@ const UsersAccount = () => {
       </nav>
 
 
-        <div className='container' style={{overflowX: 'auto'}}>
+        <div className='container'>
             <h3 className="text-center fw-semibold mt-3 mb-3 registered-user-text">Registered Users</h3>
-            <table className="table table-bordered table-striped table-responsive" style={{width:'auto'}}>
+            <table className="table table-bordered table-striped table-responsive" style={{overflowX: 'auto'}}>
                 <thead className='text-center registered-user-thead'>
                     <tr>
                         <th>S.No</th>

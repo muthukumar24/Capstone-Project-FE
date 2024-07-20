@@ -9,8 +9,8 @@ const OrderList = () => {
   const { orders } = useContext(OrderContext);
 
   return (
-    <div className="container mt-4" style={{overflowX: 'auto'}}>
-      <table className="table table-bordered table-striped table-responsive" style={{width:'auto'}}>
+    <div className="container mt-4">
+      <table className="table table-bordered table-striped table-responsive" style={{overflowX: 'auto'}}>
         <thead>
           <tr className='text-center'>
             <th className='order-table-heading'>Product</th>
