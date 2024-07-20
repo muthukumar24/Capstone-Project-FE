@@ -162,6 +162,10 @@ body {
   border: 2px solid black;
 }
 
+.table-responsive {
+  overflow-x: auto;
+}
+
 /* -------------------------------- BuyNow Sections --------------------------------- */
 .buynow-header-text
 {
