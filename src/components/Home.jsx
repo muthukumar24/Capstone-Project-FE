@@ -26,8 +26,8 @@ function Home() {
 
           {/* <p className="text-center fs-5 mb-4">Let's get started</p> */}
           <div className="row d-flex justify-content-center">
-            <div className="col-md-6">
-              <div className="mb-5 d-flex justify-content-center gap-3">
+            <div className="col-sm-11 col-md-6">
+              <div className="mb-5 d-flex justify-content-center flex-sm-wrap gap-3">
                 <Link to={"/inventory"}>
                   <button className="px-3 py-2 home-inventory-btn">Inventory</button>
                 </Link>
