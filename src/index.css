@@ -7,7 +7,7 @@ body {
 /* ----------------- Login and Register form Styles ---------------------- */
 .login-main-container,
 .register-main-container {
-  background-image: url("vecteezy_dark-blue-vector-background-with-abstract-square-shape_11020215.svg");
+  background-image: url("/public/vecteezy_dark-blue-vector-background-with-abstract-square-shape_11020215.svg");
   background-size: cover;
 }
 
