@@ -1,0 +1,314 @@
+/* Body */
+body {
+  font-family: "Roboto";
+  scroll-behavior: smooth;
+}
+
+/* ----------------- Login and Register form Styles ---------------------- */
+.login-main-container,
+.register-main-container {
+  background-image: url("vecteezy_dark-blue-vector-background-with-abstract-square-shape_11020215.svg");
+  background-size: cover;
+}
+
+#login-form,
+#register-form,
+#forgot-password-form,
+#register-form {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.email-input,
+.password-input,
+.fname-input,
+.lname-input,
+.reset-password-input {
+  border: 2px solid black;
+}
+
+.login-btn,
+.signup-btn,
+.reset-button {
+  color: white;
+  background-color: rgb(36, 44, 108) !important;
+  border-radius: 5px;
+  border: none;
+}
+
+.login-btn:hover,
+.signup-btn:hover,
+.reset-button:hover {
+  background-color: black !important;
+}
+
+/* ---------------- Home Page ----------------- */
+/* NavBar */
+.navbar {
+  background-color: rgb(36, 44, 108) !important;
+  padding: 0.5rem;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.navbar-brand:hover {
+  color: rgb(153, 153, 153);
+}
+
+.nav-link {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.nav-link:hover {
+  color: rgb(153, 153, 153);
+}
+
+/* ============= Hero Section ===============*/
+/* All Buttons */
+.home-inventory-btn,
+.home-order-btn,
+.home-reports-btn,
+.add-product-btn,
+.order-home-btn,
+.inventory-home-btn,
+.reports-home-btn,
+.users-home-btn,
+.update-form-cancel-btn,
+.tracking-order-btn {
+  background-color: rgb(36, 44, 108) !important;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.home-inventory-btn:hover,
+.home-order-btn:hover,
+.home-reports-btn:hover,
+.add-product-btn:hover,
+.inventory-home-btn:hover,
+.order-home-btn:hover,
+.reports-home-btn:hover,
+.users-home-btn:hover,
+.update-form-cancel-btn:hover,
+.tracking-order-btn:hover {
+  background-color: black !important;
+  color: white;
+}
+
+.list-group-item {
+  letter-spacing: 0.5px;
+}
+
+/* --------------- Inventory Products Section --------------------- */
+.inventory-header-text {
+  color: rgb(36, 44, 108);
+}
+
+.inventory-form {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.inventory-form-header-text {
+  color: rgb(36, 44, 108);
+}
+
+.inventory-products-header-text {
+  color: rgb(36, 44, 108);
+}
+
+.product-name,
+.product-quantity,
+.product-price,
+.product-location,
+.product-description,
+.order-status-select {
+  border: 2px solid black;
+}
+
+.product-card {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.product-card:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.inventory-product-image {
+  height: 60% !important;
+}
+
+/* ---------------------------------- Orders Section ----------------------------- */
+.orders-header-text {
+  color: rgb(36, 44, 108);
+}
+
+.order-table-heading {
+  color: rgb(36, 44, 108) !important;
+}
+
+.order-form-product-input,
+.order-form-quantity-input,
+.order-form-status-input {
+  border: 2px solid black;
+}
+
+/* -------------------------------- BuyNow Sections --------------------------------- */
+.buynow-header-text
+{
+  color: rgb(36, 44, 108);
+}
+
+.buynow-card
+{
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+  rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.buynow-card-image
+{
+  height: 450px !important;
+}
+
+.payment-select
+{
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.card-element
+{
+  width: 70%;
+  border: 2px solid #b0b0b0;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.inventory-product-edit-btn,
+.inventory-buynow-btn,
+.quantity-btn,
+.order-buynow-btn
+{
+  background-color: rgb(36, 44, 108) !important;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.inventory-product-delete-btn,
+.order-cancel-btn
+{
+  color: white;
+  background-color: rgb(232, 10, 10);
+  border-radius: 5px;
+  border: none;
+}
+
+.inventory-product-edit-btn:hover,
+.inventory-product-delete-btn:hover,
+.inventory-buynow-btn:hover,
+.quantity-btn:hover,
+.order-buynow-btn:hover,
+.order-cancel-btn:hover
+{
+  background-color: black !important;
+  color: white;
+}
+
+/* ----------------------- Order Tracking Section ------------------------- */
+.order-tracking-card {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.order-tracking-header-text {
+  color: rgb(36, 44, 108);
+}
+
+.timeline-step.active {
+  color: #449eff;
+  font-weight: bold;
+}
+
+.timeline-container {
+  position: relative;
+  padding-left: 20px;
+}
+
+.progress-bar {
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 10px;
+  height: 0;
+  background-color: rgb(36, 44, 108);
+  transition: height 0.4s ease;
+  z-index: 0;
+}
+
+.timeline {
+  position: relative;
+}
+
+.timeline-step {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.timeline-icon {
+  position: relative;
+  z-index: 1;
+}
+
+/* ----------------------- Reports Section --------------------------- */
+.reports-header-text {
+  color: rgb(36, 44, 108);
+}
+
+.reports-card {
+  border: 2px solid rgb(36, 44, 108) !important;
+  background-color: rgb(36, 44, 108);
+}
+
+.reports-card img {
+  height: 65%;
+}
+
+.reports-card:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.reports-card-title,
+.reports-card-text {
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* ------------------------ User Acoounts Section ---------------------- */
+.registered-user-text
+{
+  color: rgb(36, 44, 108);;
+}
+
+.registered-user-thead
+{
+  color: rgb(36, 44, 108);;
+}
+
+/* ------------------------- Footer Section ----------------------- */
+.footer {
+  background-color: rgb(36, 44, 108) !important;
+  color: white;
+}
