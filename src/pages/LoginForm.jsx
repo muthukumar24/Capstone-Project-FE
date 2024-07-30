@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { ClipLoader } from "react-spinners";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const initialValues = {
     email: "",
@@ -21,6 +23,7 @@ const Login = () => {
   });
 
   const handleSubmit = async (values, { setSubmitting, setStatus }) => {
+    setLoading(true);
     try {
       await login(values);
       setStatus({ success: "Login successful" });
@@ -29,11 +32,12 @@ const Login = () => {
       setStatus({ error: err.response?.data?.message || "An error occurred" });
     }
     setSubmitting(false);
+    setLoading(false);
   };
 
   return (
     <div className="container-fluid h-100 login-main-container">
-      <div className="container py-5" >
+      <div className="container py-5">
         <div className="row justify-content-center">
           <div className="col-sm-12 col-md-8 col-lg-6 col-xl-5">
             <div className="container py-5" id="login-form">
@@ -105,8 +109,15 @@ const Login = () => {
                             className="mt-3 px-4 py-2 login-btn"
                             type="submit"
                             disabled={isSubmitting}
+                            style={{ minWidth: "110px", minHeight: "40px"  }} // Set a minimum width for the button
                           >
-                            Login
+                            {loading ? (
+                              <div className="d-flex justify-content-center align-items-center">
+                                <ClipLoader size={20} color={"#fff"} />
+                              </div>
+                            ) : (
+                              "Login"
+                            )}
                           </button>
                         </div>
                         <div className="mt-3">

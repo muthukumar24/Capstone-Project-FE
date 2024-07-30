@@ -25,7 +25,7 @@ export const InventoryProvider = ({ children }) => {
     if (user) {
       getInventory();
     }
-  }, [user]);
+  }, []);
 
   const addInventory = async (newItem) => {
     if (user.role !== 'admin') {

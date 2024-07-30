@@ -9,7 +9,7 @@ const InventoryList = () => {
 
   useEffect(() => {
     getInventory();
-  }, [getInventory]);
+  }, []);
 
   return (
     <div className='container'> 

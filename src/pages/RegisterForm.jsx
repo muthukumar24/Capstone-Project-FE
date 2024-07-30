@@ -3,9 +3,11 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { ClipLoader } from "react-spinners";
 
 const Register = () => {
   const { register } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
 
   const initialValues = {
     firstName: "",
@@ -26,6 +28,7 @@ const Register = () => {
   });
 
   const handleSubmit = async (values, { setSubmitting, setStatus }) => {
+    setLoading(true);
     try {
       await register(values);
       alert("User created successfully.");
@@ -35,6 +38,7 @@ const Register = () => {
       setStatus({ error: err.message || "An error occurred" });
     }
     setSubmitting(false);
+    setLoading(false);
   };
 
   return (
@@ -123,8 +127,15 @@ const Register = () => {
                             className="px-4 py-2 mt-4 signup-btn"
                             type="submit"
                             disabled={isSubmitting}
+                            style={{ minWidth: "110px", minHeight: "40px" }}
                           >
-                            Signup
+                            {loading ? (
+                              <div className="d-flex justify-content-center align-items-center">
+                                <ClipLoader size={20} color={"#fff"} />
+                              </div>
+                            ) : (
+                              "SignUp"
+                            )}
                           </button>
                         </div>
 

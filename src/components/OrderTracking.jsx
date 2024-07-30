@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 
 const OrderTracking = () => {
   const { id } = useParams();
@@ -75,7 +76,7 @@ const OrderTracking = () => {
                 </h6>
               </div>
             ) : (
-              <p>Loading order...</p>
+              <ClipLoader size={30} color={"#242c6c"}/>
             )}
           </div>
           <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 px-5">

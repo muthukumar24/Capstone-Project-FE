@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Notifications from './Notifications';
 import { AuthContext } from "../context/AuthContext";
+import { ClipLoader } from 'react-spinners';
 
 const Reports = () => {
   const [reportData, setReportData] = useState(null);
@@ -155,7 +156,9 @@ const Reports = () => {
           </div>
         </div>
       ) : (
-        <p>Loading report...</p>
+        <div className="d-flex justify-content-center align-items-center">
+            <ClipLoader size={30} color={"#242c6c"} className='mb-4'/>
+        </div>
       )}
       <div className='d-flex justify-content-center'>
         <Link to={'/dashboard'}>

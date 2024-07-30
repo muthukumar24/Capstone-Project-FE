@@ -12,7 +12,9 @@ export const AuthProvider = ({ children }) => {
       try {
         const token = localStorage.getItem('token');
         if (token) {
-          const response = await axios.get('https://capstone-project-be-f7p8.onrender.com/api/auth/user/details', {
+          const response = await axios.get(
+            'https://capstone-project-be-f7p8.onrender.com/api/auth/user/details',
+            {
             headers: {
               Authorization: `Bearer ${token}`,
             },

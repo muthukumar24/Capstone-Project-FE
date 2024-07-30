@@ -3,19 +3,23 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ClipLoader } from "react-spinners";
 
 const ForgotPassword = () => {
   const { forgotPassword } = useContext(AuthContext);
   const [formData, setFormData] = useState({ email: "" });
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const responseMessage = await forgotPassword(formData.email);
       toast.success(responseMessage);
     } catch (err) {
       toast.error("Failed to send reset email.");
     }
+    setLoading(false);
   };
 
   return (
@@ -48,8 +52,15 @@ const ForgotPassword = () => {
                       <button
                         className="btn btn-primary mt-3 px-3 reset-button"
                         type="submit"
-                      >
-                        Send
+                        style={{ minWidth: "90px"}}
+                        >
+                          {loading ? (
+                            <div className="d-flex justify-content-center align-items-center">
+                              <ClipLoader size={20} color={"#fff"} />
+                            </div>
+                          ) : (
+                            "Send"
+                          )}
                       </button>
                       <Link to="/login">
                         <button className="btn btn-secondary mt-3 px-3 login-btn">

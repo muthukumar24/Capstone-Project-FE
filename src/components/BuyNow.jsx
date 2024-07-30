@@ -9,6 +9,7 @@ import {
 } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { OrderContext } from "../context/OrderContext";
+import { ClipLoader } from "react-spinners";
 
 const stripePromise = loadStripe('pk_test_51PcnqX2KJIH2OUzydtLKgZr3xKT0rIaBTSGfOfDhADmPL4IQhnhr4FRRMSRj1rLx0ENLdy92PtbG700EdXpHWqYy00SxBpRW21');
 
@@ -17,6 +18,7 @@ const BuyNow = () => {
   const { item } = location.state;
   const [quantity, setQuantity] = useState(1);
   const [paymentMethod, setPaymentMethod] = useState("card");
+  const [loading, setLoading] = useState(false); // State for loading spinner
   const stripe = useStripe();
   const elements = useElements();
   const navigate = useNavigate();
@@ -42,6 +44,8 @@ const BuyNow = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    setLoading(true); // Start loading spinner
+
     const orderDetails = {
       products: [
         { item: item._id, name: item.name, price: item.price, quantity },
@@ -61,6 +65,7 @@ const BuyNow = () => {
     };
 
     if (paymentMethod === "card" && (!stripe || !elements)) {
+      setLoading(false); // Stop loading spinner
       return;
     }
 
@@ -70,6 +75,7 @@ const BuyNow = () => {
 
       if (result.error) {
         console.error(result.error.message);
+        setLoading(false); // Stop loading spinner
       } else {
         try {
           const response = await axios.post(
@@ -81,8 +87,10 @@ const BuyNow = () => {
             config
           );
 
+          setLoading(false); // Stop loading spinner
+
           if (response.data.success) {
-            alert("Payment successful!");
+            alert("Payment Successful!");
             fetchOrders();
             navigate("/orders");
           } else {
@@ -90,6 +98,7 @@ const BuyNow = () => {
           }
         } catch (error) {
           console.error("Error processing payment:", error);
+          setLoading(false); // Stop loading spinner
         }
       }
     } else {
@@ -100,8 +109,10 @@ const BuyNow = () => {
           config
         );
 
+        setLoading(false); // Stop loading spinner
+
         if (response.data.success) {
-          alert("Order placed successfully with Cash on Delivery!");
+          alert("Order Placed Successfully");
           fetchOrders();
           navigate("/orders");
         } else {
@@ -109,6 +120,7 @@ const BuyNow = () => {
         }
       } catch (error) {
         console.error("Error placing order:", error);
+        setLoading(false); // Stop loading spinner
       }
     }
   };
@@ -216,9 +228,13 @@ const BuyNow = () => {
               <button
                 className="order-buynow-btn px-4 py-2 mt-4"
                 type="submit"
-                disabled={!stripe && paymentMethod === "card"}
+              disabled={loading || (paymentMethod === "card" && !stripe)}
+              style={{ minWidth: "120px" }}
               >
-                Buy Now
+                {loading ? 
+                  <div className="d-flex justify-content-center align-items-center">
+                    <ClipLoader size={20} color={"#fff"} />
+                  </div> : "Buy Now"}
               </button>
               <Link to={"/inventory"}>
                 <button className="order-cancel-btn px-4 py-2 mt-4">
